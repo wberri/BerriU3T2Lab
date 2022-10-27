@@ -1,26 +1,35 @@
+import java.util.Scanner;
+
 public class Main {
-    public static void main (String[] args){
-        SelectionMadness madness = new SelectionMadness();
+    public static void main(String[] args) {
+        Scanner myScanner = new Scanner(System.in);
+        System.out.print("Enter a positive integer: ");
+        int num = myScanner.nextInt();
 
-        // test flipcoin -- these will return true or false randomly
-        System.out.println(madness.flipCoin());
-        System.out.println(madness.flipCoin());
-        System.out.println(madness.flipCoin());
+        if (num<=0){
+            System.out.println("That's not positive!");
+        } else{
+            if(num%2==1){
+                if(num%5==0){
+                    System.out.println("Divisible by 5!");
+                }
+                if(num%7==0){
+                    System.out.println("Divisible by 7!");
+                }
+                if (num%5!=0 && num%7!=0){
+                    System.out.println("Not divisible by 5 or 7!");
+                }
+            } else {
+                if (num>1000){
+                    System.out.println("Big even number!");
+                } else if (num>100 && 1000>=num){
+                    System.out.println("Medium even number!");
+                } else{
+                    System.out.println("Small even number!");
+                }
+            }
 
-        // test largest
-        System.out.println(madness.largest(5, 8, 3));
-        System.out.println(madness.largest(8, 5, 3));
-        System.out.println(madness.largest(3, 5, 8));
-        System.out.println(madness.largest(-5, -8, -3));
-        System.out.println(madness.largest(11, 11, 10));
-
-        // test rightTriangle
-        System.out.println(madness.rightTriangle(3, 4, 5));
-        System.out.println(madness.rightTriangle(5, 4, 3));
-        System.out.println(madness.rightTriangle(6, 8, 10));
-        System.out.println(madness.rightTriangle(8, 10, 6));
-        System.out.println(madness.rightTriangle(3, 6, 5));
-        System.out.println(madness.rightTriangle(1, 2, 3));
-
+        }
     }
 }
+
